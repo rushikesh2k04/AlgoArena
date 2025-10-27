@@ -1,0 +1,787 @@
+{
+  "version": 3,
+  "sources": [
+    "../../algo_arena/contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAcgD;AAAf;;AAAzB;AAVR;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;;;;;;;;;;;AAeQ;AAA2B;;AAA3B;AAHH;AAAA;AAKA;;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAQwB;AAAA;AAAA;AAAA;AAAd;;AAAA;AAAP;AAEA;AACW;;AAEA;;AAAA;;;;;;;;;AAHX;;;AAAA;;;AAAA;AAMA;AACW;;AAEI;AAAA;AACE;;;;;;;;;AAJjB;;;;AAAA;;;AAAA;AAhBH;AAAA",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "algopy.arc4.ARC4Contract.approval_program",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0 8"
+    },
+    "6": {
+      "op": "bytecblock \"owner_addr\""
+    },
+    "19": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "21": {
+      "op": "bnz main_after_if_else@2",
+      "stack_out": []
+    },
+    "24": {
+      "op": "bytec_0 // \"owner_addr\"",
+      "defined_out": [
+        "\"owner_addr\""
+      ],
+      "stack_out": [
+        "\"owner_addr\""
+      ]
+    },
+    "25": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "\"owner_addr\"",
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "\"owner_addr\"",
+        "tmp%0#2"
+      ]
+    },
+    "27": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "28": {
+      "block": "main_after_if_else@2",
+      "stack_in": [],
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "30": {
+      "op": "bz main___algopy_default_create@11",
+      "stack_out": []
+    },
+    "33": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "35": {
+      "op": "!",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "36": {
+      "error": "OnCompletion must be NoOp",
+      "op": "assert // OnCompletion must be NoOp",
+      "stack_out": []
+    },
+    "37": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "39": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "40": {
+      "op": "pushbytess 0x4c5c61ba 0x6a296ee2 // method \"create()void\", method \"reward_user(address,uint64,uint64)void\"",
+      "defined_out": [
+        "Method(create()void)",
+        "Method(reward_user(address,uint64,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(create()void)",
+        "Method(reward_user(address,uint64,uint64)void)"
+      ]
+    },
+    "52": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(create()void)",
+        "Method(reward_user(address,uint64,uint64)void)",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "Method(create()void)",
+        "Method(reward_user(address,uint64,uint64)void)",
+        "tmp%6#0"
+      ]
+    },
+    "55": {
+      "op": "match create reward_user",
+      "stack_out": []
+    },
+    "61": {
+      "op": "err"
+    },
+    "62": {
+      "block": "main___algopy_default_create@11",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "64": {
+      "op": "!",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "65": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "67": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0"
+      ]
+    },
+    "68": {
+      "op": "&&",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "69": {
+      "error": "OnCompletion must be NoOp && can only call when creating",
+      "op": "assert // OnCompletion must be NoOp && can only call when creating",
+      "stack_out": []
+    },
+    "70": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "71": {
+      "op": "return",
+      "stack_out": []
+    },
+    "72": {
+      "subroutine": "smart_contracts.algo_arena.contract.AlgoArenaReward.create[routing]",
+      "params": {},
+      "block": "create",
+      "stack_in": [],
+      "op": "bytec_0 // \"owner_addr\"",
+      "defined_out": [
+        "\"owner_addr\""
+      ],
+      "stack_out": [
+        "\"owner_addr\""
+      ]
+    },
+    "73": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"owner_addr\"",
+        "reinterpret_Encoded(uint8[32])%0#0"
+      ],
+      "stack_out": [
+        "\"owner_addr\"",
+        "reinterpret_Encoded(uint8[32])%0#0"
+      ]
+    },
+    "75": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "76": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "77": {
+      "op": "return",
+      "stack_out": []
+    },
+    "78": {
+      "subroutine": "smart_contracts.algo_arena.contract.AlgoArenaReward.reward_user[routing]",
+      "params": {},
+      "block": "reward_user",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0"
+      ]
+    },
+    "81": {
+      "op": "dup",
+      "defined_out": [
+        "recipient_address#0",
+        "recipient_address#0 (copy)"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "recipient_address#0 (copy)"
+      ]
+    },
+    "82": {
+      "op": "len",
+      "defined_out": [
+        "len%0#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "len%0#0"
+      ]
+    },
+    "83": {
+      "op": "pushint 32 // 32",
+      "defined_out": [
+        "32",
+        "len%0#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "len%0#0",
+        "32"
+      ]
+    },
+    "85": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "eq%0#0"
+      ]
+    },
+    "86": {
+      "error": "invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "op": "assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>",
+      "stack_out": [
+        "recipient_address#0"
+      ]
+    },
+    "87": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0"
+      ]
+    },
+    "90": {
+      "op": "dup",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "algo_reward_amount#0 (copy)",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "algo_reward_amount#0 (copy)"
+      ]
+    },
+    "91": {
+      "op": "len",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "len%1#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "len%1#0"
+      ]
+    },
+    "92": {
+      "op": "intc_2 // 8",
+      "defined_out": [
+        "8",
+        "algo_reward_amount#0",
+        "len%1#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "len%1#0",
+        "8"
+      ]
+    },
+    "93": {
+      "op": "==",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "eq%1#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "eq%1#0"
+      ]
+    },
+    "94": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0"
+      ]
+    },
+    "95": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "98": {
+      "op": "dup",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "nft_asset_id#0 (copy)",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "nft_asset_id#0 (copy)"
+      ]
+    },
+    "99": {
+      "op": "len",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "len%2#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "len%2#0"
+      ]
+    },
+    "100": {
+      "op": "intc_2 // 8",
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "len%2#0",
+        "8"
+      ]
+    },
+    "101": {
+      "op": "==",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "eq%2#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "eq%2#0"
+      ]
+    },
+    "102": {
+      "error": "invalid number of bytes for arc4.uint64",
+      "op": "assert // invalid number of bytes for arc4.uint64",
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "103": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "0"
+      ]
+    },
+    "104": {
+      "op": "bytec_0 // \"owner_addr\"",
+      "defined_out": [
+        "\"owner_addr\"",
+        "0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "0",
+        "\"owner_addr\""
+      ]
+    },
+    "105": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "106": {
+      "error": "check self.owner exists",
+      "op": "assert // check self.owner exists",
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "107": {
+      "op": "txn Sender",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "maybe_value%0#0",
+        "nft_asset_id#0",
+        "recipient_address#0",
+        "reinterpret_Encoded(uint8[32])%0#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "maybe_value%0#0",
+        "reinterpret_Encoded(uint8[32])%0#0"
+      ]
+    },
+    "109": {
+      "op": "==",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "recipient_address#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "tmp%0#1"
+      ]
+    },
+    "110": {
+      "error": "Only the AlgoArena owner/server can issue rewards.",
+      "op": "assert // Only the AlgoArena owner/server can issue rewards.",
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "111": {
+      "op": "itxn_begin"
+    },
+    "112": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "algo_reward_amount#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "algo_reward_amount#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0"
+      ]
+    },
+    "114": {
+      "op": "uncover 2",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0",
+        "algo_reward_amount#0"
+      ]
+    },
+    "116": {
+      "op": "btoi",
+      "defined_out": [
+        "inner_txn_params%0%%param_Amount_idx_0#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0",
+        "inner_txn_params%0%%param_Amount_idx_0#0"
+      ]
+    },
+    "117": {
+      "op": "itxn_field Amount",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0"
+      ]
+    },
+    "119": {
+      "op": "dig 2",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0",
+        "recipient_address#0 (copy)"
+      ]
+    },
+    "121": {
+      "op": "itxn_field Receiver",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%0%%param_Sender_idx_0#0"
+      ]
+    },
+    "123": {
+      "op": "itxn_field Sender",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "125": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "nft_asset_id#0",
+        "pay",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "pay"
+      ]
+    },
+    "126": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "128": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "0"
+      ]
+    },
+    "129": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "131": {
+      "op": "itxn_submit"
+    },
+    "132": {
+      "op": "itxn_begin"
+    },
+    "133": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "nft_asset_id#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "nft_asset_id#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0"
+      ]
+    },
+    "135": {
+      "op": "swap",
+      "stack_out": [
+        "recipient_address#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "nft_asset_id#0"
+      ]
+    },
+    "136": {
+      "op": "btoi",
+      "defined_out": [
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "inner_txn_params%1%%param_XferAsset_idx_0#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "inner_txn_params%1%%param_XferAsset_idx_0#0"
+      ]
+    },
+    "137": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "inner_txn_params%1%%param_XferAsset_idx_0#0",
+        "recipient_address#0"
+      ],
+      "stack_out": [
+        "recipient_address#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "inner_txn_params%1%%param_XferAsset_idx_0#0",
+        "1"
+      ]
+    },
+    "138": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "recipient_address#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "inner_txn_params%1%%param_XferAsset_idx_0#0"
+      ]
+    },
+    "140": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "recipient_address#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0"
+      ]
+    },
+    "142": {
+      "op": "itxn_field Sender"
+    },
+    "144": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": []
+    },
+    "146": {
+      "op": "pushint 4 // axfer",
+      "defined_out": [
+        "axfer"
+      ],
+      "stack_out": [
+        "axfer"
+      ]
+    },
+    "148": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "150": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "151": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "153": {
+      "op": "itxn_submit"
+    },
+    "154": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "1"
+      ]
+    },
+    "155": {
+      "op": "return",
+      "stack_out": []
+    }
+  }
+}
