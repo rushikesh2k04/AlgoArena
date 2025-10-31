@@ -16,14 +16,14 @@ class AlgoArenaReward(ARC4Contract):
 
     @abimethod()
     def create(self) -> None:
-        """Sets the contract owner to the sender on application creation."""
-        self.owner.value = Address(Txn.sender)
-
-    @abimethod()
-    def create(self) -> None:
     """Sets the contract owner to the sender and initializes fee to 0%."""
         self.owner.value = Address(Txn.sender)
         self.fee_percent.value = UInt8(0)
         # Initialize authorized_nfts with all zeros
         self.authorized_nfts.value = Bytes(b'\x00' * 80)
+    @abimethod(allow_actions=['UpdateApplication'])
+    def update_application(self, approval_program: Bytes, clear_state_program: Bytes) -> None:
+    """Allows only the owner to update the application logic."""
+        assert Txn.sender == self.owner.value, "Only the current owner can update the application."
+
 
