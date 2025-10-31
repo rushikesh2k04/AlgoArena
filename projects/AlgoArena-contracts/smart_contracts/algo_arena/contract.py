@@ -20,24 +20,10 @@ class AlgoArenaReward(ARC4Contract):
         self.owner.value = Address(Txn.sender)
 
     @abimethod()
-    def reward_user(
-        self,
-        recipient_address: Address,
-        algo_reward_amount: UInt64,
-        nft_asset_id: UInt64,
-    ) -> None:
-        """Distributes Algos and an NFT to a recipient."""
-        assert Txn.sender == self.owner.value, "Only the AlgoArena owner/server can issue rewards."
+    def create(self) -> None:
+    """Sets the contract owner to the sender and initializes fee to 0%."""
+        self.owner.value = Address(Txn.sender)
+        self.fee_percent.value = UInt8(0)
+        # Initialize authorized_nfts with all zeros
+        self.authorized_nfts.value = Bytes(b'\x00' * 80)
 
-        itxn.Payment(
-            sender=Global.current_application_address,
-            receiver=recipient_address.native,
-            amount=algo_reward_amount.native
-        ).submit()
-
-        itxn.AssetTransfer(
-            sender=Global.current_application_address,
-            asset_receiver=recipient_address.native,
-            xfer_asset=nft_asset_id.native,
-            asset_amount=NativeUInt64(1)
-        ).submit()
