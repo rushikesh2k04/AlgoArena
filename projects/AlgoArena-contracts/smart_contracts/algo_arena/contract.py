@@ -12,3 +12,7 @@ class AlgoArenaRewardContract(ARC4Contract):
             self.paused.value = UInt64(0)
         if not self.name:
             self.name.value = Bytes(b"AlgoArenaReward")
+    @arc4.abimethod
+    def set_admin(self, new_admin: arc4.Address) -> None:
+        assert Txn.sender == self.admin.value, "only admin"
+        self.admin.value = new_admin.native
