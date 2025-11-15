@@ -3,32 +3,34 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { Home, RotateCcw } from "lucide-react";
-import { usePeraWallet } from "@/hooks/usePeraWallet";
+import { usePeraWallet } from "@/hooks/useMultiWallet";
 import { useToast } from "@/hooks/use-toast";
 import { claimReward } from "@/utils/algoReward";
 
-type Candy = '🍬' | '🍭' | '🍫' | '🍩' | '🍪' | null;
+type Cell = { color: string; connected: boolean } | null;
 
-const CandyCrush = () => {
+const ColorConnect = () => {
   const navigate = useNavigate();
   const { accountAddress } = usePeraWallet();
   const { toast } = useToast();
-  const [grid, setGrid] = useState<Candy[][]>([]);
+  const [grid, setGrid] = useState<Cell[][]>([]);
   const [score, setScore] = useState(0);
-  const [moves, setMoves] = useState(30);
-  const [level, setLevel] = useState(1);
+  const [moves, setMoves] = useState(20);
   const [targetScore, setTargetScore] = useState(500);
   const [selectedCell, setSelectedCell] = useState<[number, number] | null>(null);
   const [rewardClaimed, setRewardClaimed] = useState(false);
 
-  const candies: Candy[] = ['🍬', '🍭', '🍫', '🍩', '🍪'];
+  const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
 
   const createGrid = () => {
-    const newGrid: Candy[][] = [];
+    const newGrid: Cell[][] = [];
     for (let i = 0; i < 8; i++) {
-      const row: Candy[] = [];
+      const row: Cell[] = [];
       for (let j = 0; j < 8; j++) {
-        row.push(candies[Math.floor(Math.random() * candies.length)]);
+        row.push({
+          color: colors[Math.floor(Math.random() * colors.length)],
+          connected: false,
+        });
       }
       newGrid.push(row);
     }
@@ -39,66 +41,77 @@ const CandyCrush = () => {
     setGrid(createGrid());
   }, []);
 
-  const checkMatches = (currentGrid: Candy[][]) => {
-    const newGrid = currentGrid.map(row => [...row]);
-    let matchFound = false;
+  const checkConnections = (currentGrid: Cell[][]) => {
+    const newGrid = currentGrid.map(row => row.map(cell => cell ? { ...cell, connected: false } : null));
+    let connectionsFound = false;
     let points = 0;
 
-    // Check horizontal matches
+    // Check horizontal connections
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 6; j++) {
-        const candy = newGrid[i][j];
-        if (candy && candy === newGrid[i][j + 1] && candy === newGrid[i][j + 2]) {
-          newGrid[i][j] = null;
-          newGrid[i][j + 1] = null;
-          newGrid[i][j + 2] = null;
-          matchFound = true;
-          points += 30;
+        const cell = newGrid[i][j];
+        if (cell && cell.color === newGrid[i][j + 1]?.color && cell.color === newGrid[i][j + 2]?.color) {
+          newGrid[i][j]!.connected = true;
+          newGrid[i][j + 1]!.connected = true;
+          newGrid[i][j + 2]!.connected = true;
+          connectionsFound = true;
+          points += 50;
         }
       }
     }
 
-    // Check vertical matches
+    // Check vertical connections
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 8; j++) {
-        const candy = newGrid[i][j];
-        if (candy && candy === newGrid[i + 1][j] && candy === newGrid[i + 2][j]) {
-          newGrid[i][j] = null;
-          newGrid[i + 1][j] = null;
-          newGrid[i + 2][j] = null;
-          matchFound = true;
-          points += 30;
+        const cell = newGrid[i][j];
+        if (cell && cell.color === newGrid[i + 1][j]?.color && cell.color === newGrid[i + 2][j]?.color) {
+          newGrid[i][j]!.connected = true;
+          newGrid[i + 1][j]!.connected = true;
+          newGrid[i + 2][j]!.connected = true;
+          connectionsFound = true;
+          points += 50;
         }
       }
     }
 
-    if (matchFound) {
+    if (connectionsFound) {
       setScore(prev => prev + points);
-      // Drop candies
-      for (let j = 0; j < 8; j++) {
-        for (let i = 7; i >= 0; i--) {
-          if (newGrid[i][j] === null) {
-            for (let k = i - 1; k >= 0; k--) {
-              if (newGrid[k][j] !== null) {
-                newGrid[i][j] = newGrid[k][j];
-                newGrid[k][j] = null;
-                break;
+      // Remove connected cells and drop down
+      setTimeout(() => {
+        const clearedGrid = newGrid.map(row => 
+          row.map(cell => cell && cell.connected ? null : cell)
+        );
+        
+        // Drop cells down
+        for (let j = 0; j < 8; j++) {
+          for (let i = 7; i >= 0; i--) {
+            if (clearedGrid[i][j] === null) {
+              for (let k = i - 1; k >= 0; k--) {
+                if (clearedGrid[k][j] !== null) {
+                  clearedGrid[i][j] = clearedGrid[k][j];
+                  clearedGrid[k][j] = null;
+                  break;
+                }
               }
-            }
-            if (newGrid[i][j] === null) {
-              newGrid[i][j] = candies[Math.floor(Math.random() * candies.length)];
+              if (clearedGrid[i][j] === null) {
+                clearedGrid[i][j] = {
+                  color: colors[Math.floor(Math.random() * colors.length)],
+                  connected: false,
+                };
+              }
             }
           }
         }
-      }
-      setTimeout(() => checkMatches(newGrid), 300);
+        setGrid(clearedGrid);
+        setTimeout(() => checkConnections(clearedGrid), 300);
+      }, 500);
+    } else {
+      setGrid(newGrid);
     }
-    
-    setGrid(newGrid);
   };
 
   const handleCellClick = (row: number, col: number) => {
-    if (moves === 0) return;
+    if (moves === 0 || !grid[row][col]) return;
 
     if (!selectedCell) {
       setSelectedCell([row, col]);
@@ -109,38 +122,30 @@ const CandyCrush = () => {
         (Math.abs(col - selectedCol) === 1 && row === selectedRow);
 
       if (isAdjacent) {
-        const newGrid = grid.map(r => [...r]);
+        const newGrid = grid.map(r => r.map(cell => cell ? { ...cell } : null));
         [newGrid[row][col], newGrid[selectedRow][selectedCol]] = 
           [newGrid[selectedRow][selectedCol], newGrid[row][col]];
         
         setGrid(newGrid);
         setMoves(prev => prev - 1);
-        setTimeout(() => checkMatches(newGrid), 100);
+        setTimeout(() => checkConnections(newGrid), 100);
       }
       
       setSelectedCell(null);
     }
   };
 
-  const nextLevel = () => {
-    setLevel(prev => prev + 1);
-    setMoves(30);
-    setTargetScore(prev => prev + 300);
-    setGrid(createGrid());
-  };
-
   const resetGame = () => {
     setGrid(createGrid());
     setScore(0);
-    setMoves(30);
-    setLevel(1);
+    setMoves(20);
     setTargetScore(500);
     setRewardClaimed(false);
   };
 
   useEffect(() => {
-    if (score >= targetScore && level >= 3 && !rewardClaimed && accountAddress) {
-      const rewardAmount = 20;
+    if (score >= targetScore && !rewardClaimed && accountAddress) {
+      const rewardAmount = 11;
       claimReward(accountAddress, rewardAmount).then(success => {
         if (success) {
           setRewardClaimed(true);
@@ -151,7 +156,7 @@ const CandyCrush = () => {
         }
       });
     }
-  }, [score, targetScore, level, accountAddress, rewardClaimed, toast]);
+  }, [score, targetScore, accountAddress, rewardClaimed, toast]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/95 p-4">
@@ -163,9 +168,9 @@ const CandyCrush = () => {
           </Button>
           <div className="text-center">
             <h1 className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">
-              Candy Crush
+              Color Connect
             </h1>
-            <p className="text-muted-foreground">Level {level} • Score: {score}/{targetScore}</p>
+            <p className="text-muted-foreground">Score: {score}/{targetScore}</p>
           </div>
           <Button variant="outline" onClick={resetGame}>
             <RotateCcw className="w-4 h-4 mr-2" />
@@ -180,30 +185,29 @@ const CandyCrush = () => {
 
           <div className="grid grid-cols-8 gap-2 max-w-md mx-auto mb-6">
             {grid.map((row, i) =>
-              row.map((candy, j) => (
+              row.map((cell, j) => (
                 <button
                   key={`${i}-${j}`}
                   onClick={() => handleCellClick(i, j)}
-                  className={`aspect-square text-3xl rounded-lg transition-all ${
+                  className={`aspect-square rounded-lg transition-all ${
                     selectedCell?.[0] === i && selectedCell?.[1] === j
-                      ? 'bg-primary/30 scale-110'
-                      : 'bg-card hover:bg-primary/10'
-                  }`}
-                >
-                  {candy}
-                </button>
+                      ? 'scale-110 ring-2 ring-primary'
+                      : 'hover:scale-105'
+                  } ${cell?.connected ? 'animate-glow' : ''}`}
+                  style={{
+                    backgroundColor: cell?.color || '#333',
+                  }}
+                />
               ))
             )}
           </div>
 
           {score >= targetScore && (
             <div className="text-center space-y-4">
-              <p className="text-2xl font-bold text-primary">🎉 Level Complete!</p>
-              {level >= 3 && (
-                <p className="text-lg text-secondary">+10 ALGO Reward!</p>
-              )}
-              <Button onClick={nextLevel} className="gap-2">
-                Next Level
+              <p className="text-2xl font-bold text-primary">🎉 You Won!</p>
+              <p className="text-lg text-secondary">+11 ALGO Reward!</p>
+              <Button onClick={resetGame} className="gap-2">
+                Play Again
               </Button>
             </div>
           )}
@@ -220,4 +224,4 @@ const CandyCrush = () => {
   );
 };
 
-export default CandyCrush;
+export default ColorConnect;

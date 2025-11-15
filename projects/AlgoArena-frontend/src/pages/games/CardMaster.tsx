@@ -134,7 +134,7 @@ export default function CardMaster() {
           {gameWon && (
             <div className="mb-6 p-4 bg-primary/20 rounded-lg text-center">
               <p className="text-xl font-bold text-primary">
-                You Won 50 ALGO! 🎉
+                You Won 10 ALGO! 🎉
               </p>
               <Button onClick={resetGame} className="mt-4">
                 Play Again

@@ -1,24 +1,36 @@
 export const claimReward = async (walletAddress: string, amount: number): Promise<boolean> => {
   try {
-    console.log(`Claiming ${amount} ALGO for wallet: ${walletAddress}`);
+    console.log(`Claiming ${amount} ALGO reward from smart contract for wallet: ${walletAddress}`);
     
     // Convert ALGO to microAlgos (1 ALGO = 1,000,000 microAlgos)
     const microAlgos = amount * 1000000;
     
-    // Use no-cors mode to avoid CORS issues, but note we won't be able to read the response
+    // Call the backend edge function to trigger smart contract reward distribution
     const response = await fetch(
-      `https://bank.testnet.algorand.network/?account=${walletAddress}&amount=${microAlgos}`,
+      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/claim-reward`,
       {
-        method: 'GET',
-        mode: 'no-cors', // This bypasses CORS but we can't read the response
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          walletAddress,
+          amount: microAlgos,
+        }),
       }
     );
     
-    console.log('Dispenser request sent');
+    if (!response.ok) {
+      const error = await response.json();
+      console.error('Reward claim failed:', error);
+      return false;
+    }
     
-    // Since we're using no-cors, we can't check response.ok
-    // We'll assume success and let the user verify in their wallet
-    return true;
+    const result = await response.json();
+    console.log('Reward claimed successfully:', result);
+    
+    return result.success;
   } catch (error) {
     console.error('Error claiming reward:', error);
     return false;

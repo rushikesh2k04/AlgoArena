@@ -177,7 +177,7 @@ export default function FruitMerge() {
 
   useEffect(() => {
     if (gameOver && score >= 300 && !rewardClaimed && accountAddress) {
-      const rewardAmount = 11;
+      const rewardAmount = 10;
       claimReward(accountAddress, rewardAmount).then(success => {
         if (success) {
           setRewardClaimed(true);

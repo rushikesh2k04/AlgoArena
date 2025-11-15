@@ -43,7 +43,7 @@ export const GameCard = ({
       "Sudoku Master": "/games/sudoku",
       "Water Sort": "/games/water-sort",
       "Block Puzzle": "/games/block-puzzle",
-      "Fruit Merge": "/games/fruit-merge",
+      "Color Connect": "/games/color-connect",
       "Tic Tac Toe": "/games/tictactoe",
       "Candy Crush": "/games/candy-crush",
       "Bubble Shooter": "/games/bubble-shooter",
@@ -116,7 +116,7 @@ export const GameCard = ({
         </div>
       </div>
       
-      <div className="p-5 space-y-3">
+      <div className="p-6 space-y-4">
         <div>
           <h3 className="text-xl font-bold mb-2">{title}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>

@@ -195,7 +195,7 @@ const BubbleShooter = () => {
             <div className="text-center space-y-4">
               <p className="text-3xl font-bold text-primary">🎉 You Won!</p>
               <p className="text-xl">Final Score: {score}</p>
-              <p className="text-lg text-secondary">+8 ALGO Reward!</p>
+              <p className="text-lg text-secondary">+10 ALGO Reward!</p>
               <Button onClick={initializeGame} className="gap-2">
                 <RotateCcw className="w-4 h-4" />
                 Play Again

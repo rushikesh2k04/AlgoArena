@@ -96,7 +96,7 @@ export const Friends = () => {
                         <p className="text-sm text-muted-foreground">{friend.address}</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-6">
                       <div className="text-right">
                         <div className="flex items-center gap-1 text-primary">

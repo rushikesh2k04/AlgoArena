@@ -181,7 +181,7 @@ export default function BlockPuzzle() {
 
           {score >= 500 && (
             <div className="mb-4 p-4 bg-primary/20 rounded-lg text-center">
-              <p className="text-xl font-bold text-primary">You Won 9 ALGO! 🎉</p>
+              <p className="text-xl font-bold text-primary">You Won 10 ALGO! 🎉</p>
             </div>
           )}
 

@@ -81,7 +81,7 @@ export default function WaterSort() {
         setGameWon(true);
         toast({
           title: "Puzzle Solved!",
-          description: `You won 7 ALGO in ${moves + 1} moves!`,
+          description: `You won 10 ALGO in ${moves + 1} moves!`,
         });
       }
     }

@@ -98,15 +98,15 @@ export const Leaderboard = () => {
                   Global
                 </TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="friends">
                 {renderLeaderboard(friendsLeaders)}
               </TabsContent>
-              
+
               <TabsContent value="country">
                 {renderLeaderboard(countryLeaders)}
               </TabsContent>
-              
+
               <TabsContent value="global">
                 {renderLeaderboard(globalLeaders)}
               </TabsContent>

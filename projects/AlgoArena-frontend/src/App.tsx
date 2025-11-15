@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { WalletProvider } from "@/hooks/usePeraWallet";
+import { MultiWalletProvider } from "@/hooks/useMultiWallet";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TriviaChallenge from "./pages/games/TriviaChallenge";
@@ -14,7 +14,7 @@ import NumberSlide from "./pages/games/NumberSlide";
 import SudokuMaster from "./pages/games/SudokuMaster";
 import WaterSort from "./pages/games/WaterSort";
 import BlockPuzzle from "./pages/games/BlockPuzzle";
-import FruitMerge from "./pages/games/FruitMerge";
+import ColorConnect from "./pages/games/ColorConnect";
 import TicTacToe from "./pages/games/TicTacToe";
 import CandyCrush from "./pages/games/CandyCrush";
 import BubbleShooter from "./pages/games/BubbleShooter";
@@ -23,7 +23,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <WalletProvider>
+    <MultiWalletProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -38,7 +38,7 @@ const App = () => (
             <Route path="/games/sudoku" element={<SudokuMaster />} />
             <Route path="/games/water-sort" element={<WaterSort />} />
             <Route path="/games/block-puzzle" element={<BlockPuzzle />} />
-            <Route path="/games/fruit-merge" element={<FruitMerge />} />
+            <Route path="/games/color-connect" element={<ColorConnect />} />
             <Route path="/games/tictactoe" element={<TicTacToe />} />
             <Route path="/games/candy-crush" element={<CandyCrush />} />
             <Route path="/games/bubble-shooter" element={<BubbleShooter />} />
@@ -47,7 +47,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </WalletProvider>
+    </MultiWalletProvider>
   </QueryClientProvider>
 );
 

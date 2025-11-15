@@ -5,7 +5,7 @@ import heroBanner from "@/assets/hero-banner.jpg";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div 
+      <div
         className="absolute inset-0 opacity-40"
         style={{
           backgroundImage: `url(${heroBanner})`,
@@ -14,7 +14,7 @@ export const Hero = () => {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-slide-in">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight md:leading-snug">
@@ -27,9 +27,9 @@ export const Hero = () => {
   </span>
 </h1>
 
-          
+
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Compete in mini-games, win ALGO tokens, and collect exclusive NFTs on Algorand TestNet. 
+            Compete in mini-games, win ALGO tokens, and collect exclusive NFTs on Algorand TestNet.
             Your skills matter, your rewards are instant.
           </p>
 
@@ -46,15 +46,15 @@ export const Hero = () => {
 
           <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">10+</div>
+              <div className="text-3xl font-bold text-primary">12+</div>
               <div className="text-sm text-muted-foreground">Mini Games</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-secondary">1000+</div>
+              <div className="text-3xl font-bold text-secondary">5K+</div>
               <div className="text-sm text-muted-foreground">Active Players</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">50K</div>
+              <div className="text-3xl font-bold text-primary">1M+</div>
               <div className="text-sm text-muted-foreground">ALGO Rewards</div>
             </div>
           </div>

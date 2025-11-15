@@ -168,7 +168,7 @@ export default function SpeedRacer() {
               <h2 className="text-3xl font-bold mb-4">Game Over!</h2>
               <p className="text-xl mb-2">Final Score: {score}</p>
               <p className="text-muted-foreground mb-6">
-                {score >= 100 ? "You won 25 ALGO!" : "Try again!"}
+                {score >= 100 ? "You won 10 ALGO!" : "Try again!"}
               </p>
               <div className="flex gap-4 justify-center">
                 <Button onClick={startGame}>Play Again</Button>

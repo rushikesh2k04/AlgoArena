@@ -8,7 +8,7 @@ import numberSlideIcon from "@/assets/2048-icon.jpg";
 import sudokuIcon from "@/assets/sudoku-icon.jpg";
 import waterSortIcon from "@/assets/water-sort-icon.jpg";
 import blockPuzzleIcon from "@/assets/block-puzzle-icon.jpg";
-import fruitMergeIcon from "@/assets/fruit-merge-icon.jpg";
+import colorConnectIcon from "@/assets/color-connect-icon.jpg";
 import ticTacToeIcon from "@/assets/tictactoe-icon.jpg";
 import candyCrushIcon from "@/assets/candy-crush-icon.jpg";
 import bubbleShooterIcon from "@/assets/bubble-shooter-icon.jpg";
@@ -97,9 +97,9 @@ export const Games = () => {
       difficulty: "Easy" as const,
     },
     {
-      title: "Fruit Merge",
-      description: "Merge fruits to create bigger ones. Juicy rewards await!",
-      image: fruitMergeIcon,
+      title: "Color Connect",
+      description: "Match and connect colors for explosive combos. Colorful rewards!",
+      image: colorConnectIcon,
       players: 521,
       prize: "11",
       entryFee: "2",
@@ -156,8 +156,8 @@ export const Games = () => {
           </div>
         </div>
       </section>
-      
-      <ChallengeModal 
+
+      <ChallengeModal
         open={challengeModalOpen}
         onOpenChange={setChallengeModalOpen}
         gameName={selectedGame}

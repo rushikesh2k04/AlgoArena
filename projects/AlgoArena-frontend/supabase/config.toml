@@ -1,1 +1,4 @@
 project_id = "dhmoorvvrspsrmshpunc"
+
+[functions.claim-reward]
+verify_jwt = false

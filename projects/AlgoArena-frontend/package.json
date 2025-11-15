@@ -11,7 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@blockshake/defly-connect": "^1.2.1",
     "@hookform/resolvers": "^3.10.0",
+    "@magic-ext/algorand": "^26.2.0",
     "@perawallet/connect": "^1.4.2",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -50,6 +52,7 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
+    "lute-connect": "^1.6.3",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",

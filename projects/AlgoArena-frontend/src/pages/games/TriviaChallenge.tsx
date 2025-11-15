@@ -9,29 +9,44 @@ import { claimReward } from "@/utils/algoReward";
 
 const questions = [
   {
-    question: "What is the capital of France?",
-    options: ["London", "Berlin", "Paris", "Madrid"],
-    correct: 2,
-  },
-  {
-    question: "Which planet is known as the Red Planet?",
-    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+    question: "What consensus mechanism does Algorand use?",
+    options: ["Proof of Work", "Pure Proof of Stake", "Delegated PoS", "Proof of Authority"],
     correct: 1,
   },
   {
-    question: "What is 2 + 2?",
-    options: ["3", "4", "5", "6"],
+    question: "What is the average block time on Algorand?",
+    options: ["10 minutes", "4.5 seconds", "15 seconds", "1 minute"],
     correct: 1,
   },
   {
-    question: "Who painted the Mona Lisa?",
-    options: ["Van Gogh", "Picasso", "Da Vinci", "Monet"],
+    question: "Who created Algorand?",
+    options: ["Vitalik Buterin", "Silvio Micali", "Charles Hoskinson", "Gavin Wood"],
+    correct: 1,
+  },
+  {
+    question: "What is the native token of Algorand?",
+    options: ["USDC", "ETH", "ALGO", "ADA"],
     correct: 2,
   },
   {
-    question: "What is the largest ocean?",
-    options: ["Atlantic", "Indian", "Arctic", "Pacific"],
-    correct: 3,
+    question: "What is the maximum supply of ALGO tokens?",
+    options: ["10 billion", "21 million", "100 million", "Unlimited"],
+    correct: 0,
+  },
+  {
+    question: "What programming language is primarily used for Algorand smart contracts?",
+    options: ["Solidity", "Python", "PyTeal", "Rust"],
+    correct: 2,
+  },
+  {
+    question: "What does ASA stand for in Algorand?",
+    options: ["Algorand Smart Asset", "Automated Staking Algorithm", "Advanced Security Algorithm", "Asset Standard Agreement"],
+    correct: 0,
+  },
+  {
+    question: "What is the typical transaction fee on Algorand?",
+    options: ["$10", "$1", "0.001 ALGO", "Free"],
+    correct: 2,
   },
 ];
 
