@@ -24,3 +24,14 @@ class AlgoArenaRewardContract(ARC4Contract):
     def unpause(self) -> None:
         assert Txn.sender == self.admin.value, "only admin"
         self.paused.value = UInt64(0)
+    @arc4.abimethod
+    def reward(self, player: arc4.Address, amount: arc4.UInt64) -> None:
+        assert Txn.sender == self.admin.value, "only admin"
+        assert self.paused.value == UInt64(0), "contract paused"
+        assert amount.native > 0, "amount must be > 0"
+
+        itxn.Payment(
+            receiver=player.native,
+            amount=amount.native,
+            fee=1000
+        ).submit()
