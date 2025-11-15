@@ -20,3 +20,7 @@ class AlgoArenaRewardContract(ARC4Contract):
     def pause(self) -> None:
         assert Txn.sender == self.admin.value, "only admin"
         self.paused.value = UInt64(1)
+    @arc4.abimethod
+    def unpause(self) -> None:
+        assert Txn.sender == self.admin.value, "only admin"
+        self.paused.value = UInt64(0)
