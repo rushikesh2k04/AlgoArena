@@ -16,3 +16,7 @@ class AlgoArenaRewardContract(ARC4Contract):
     def set_admin(self, new_admin: arc4.Address) -> None:
         assert Txn.sender == self.admin.value, "only admin"
         self.admin.value = new_admin.native
+    @arc4.abimethod
+    def pause(self) -> None:
+        assert Txn.sender == self.admin.value, "only admin"
+        self.paused.value = UInt64(1)
