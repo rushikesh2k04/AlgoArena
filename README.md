@@ -1,45 +1,112 @@
-# AlgoArena
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+# 🎮 AlgoArena – Blockchain-Powered Mini-Game Hub
 
-## Setup
+[![Algorand](https://img.shields.io/badge/Blockchain-Algorand-000000?style=for-the-badge&logo=algorand&logoColor=white)]()
+[![PyTeal](https://img.shields.io/badge/Smart_Contracts-PyTeal-3776AB?style=for-the-badge&logo=python&logoColor=white)]()
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)]()
+[![TailwindCSS](https://img.shields.io/badge/UI-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)]()
+[![Supabase](https://img.shields.io/badge/Database-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)]()
 
-### Initial setup
-1. Clone this repository to your local machine.
-2. Ensure [Docker](https://www.docker.com/) is installed and operational. Then, install `AlgoKit` following this [guide](https://github.com/algorandfoundation/algokit-cli#install).
-3. Run `algokit project bootstrap all` in the project directory. This command sets up your environment by installing necessary dependencies, setting up a Python virtual environment, and preparing your `.env` file.
-4. In the case of a smart contract project, execute `algokit generate env-file -a target_network localnet` from the `AlgoArena-contracts` directory to create a `.env.localnet` file with default configuration for `localnet`.
-5. To build your project, execute `algokit project run build`. This compiles your project and prepares it for running.
-6. For project-specific instructions, refer to the READMEs of the child projects:
-   - Smart Contracts: [AlgoArena-contracts](projects/AlgoArena-contracts/README.md)
-   - Frontend Application: [AlgoArena-frontend](projects/AlgoArena-frontend/README.md)
+## 🔥 Overview
 
-> This project is structured as a monorepo, refer to the [documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/project/run.md) to learn more about custom command orchestration via `algokit project run`.
+**AlgoArena** is a decentralized mini-game platform built on Algorand, where skill-based gameplay transforms into real blockchain-backed rewards.  
+Players enjoy mini-games, compete globally, earn Algo tokens and NFTs, and own every asset they win.
 
-### Subsequently
+## 🚀 Key Features
 
-1. If you update to the latest source code and there are new dependencies, you will need to run `algokit project bootstrap all` again.
-2. Follow step 3 above.
+- 🕹️ Multi-game hub (puzzles, trivia, racing, battles)
+- 💰 Earn Algo tokens & NFTs
+- 🔗 True blockchain ownership
+- ⚖️ Smart-contract-powered fair play
+- 🌍 Interoperable game assets
+- ⚡ Fast, low-cost Algorand transactions
 
-## Tools
+## 🛣️ How It Works
 
-This project makes use of Python and React to build Algorand smart contracts and to provide a base project configuration to develop frontends for your Algorand dApps and interactions with smart contracts. The following tools are in use:
+1. **Connect Wallet** (Pera Wallet | Defly | Lute)
+2. **Choose a Game**
+3. **Play & Achieve**
+4. **Smart Contract Verification**
+5. **Instant Rewards**
 
-- Algorand, AlgoKit, and AlgoKit Utils
-- Python dependencies including Poetry, Black, Ruff or Flake8, mypy, pytest, and pip-audit
-- React and related dependencies including AlgoKit Utils, Tailwind CSS, daisyUI, use-wallet, npm, jest, playwright, Prettier, ESLint, and Github Actions workflows for build validation
+## 🛠️ Tech Stack
 
-### VS Code
+**Blockchain:** Algorand  
+**Smart Contracts:** PyTeal  
+**Frontend:** React + TypeScript + Vite  
+**UI:** Tailwind CSS + shadcn/ui  
+**Database:** Supabase  
+**State Management:** TanStack Query  
 
-It has also been configured to have a productive dev experience out of the box in [VS Code](https://code.visualstudio.com/), see the [backend .vscode](./backend/.vscode) and [frontend .vscode](./frontend/.vscode) folders for more details.
+---
 
-## Integrating with smart contracts and application clients
+# 🛠️ Setup & Installation
 
-Refer to the [AlgoArena-contracts](projects/AlgoArena-contracts/README.md) folder for overview of working with smart contracts, [projects/AlgoArena-frontend](projects/AlgoArena-frontend/README.md) for overview of the React project and the [projects/AlgoArena-frontend/contracts](projects/AlgoArena-frontend/src/contracts/README.md) folder for README on adding new smart contracts from backend as application clients on your frontend. The templates provided in these folders will help you get started.
-When you compile and generate smart contract artifacts, your frontend component will automatically generate typescript application clients from smart contract artifacts and move them to `frontend/src/contracts` folder, see [`generate:app-clients` in package.json](projects/AlgoArena-frontend/package.json). Afterwards, you are free to import and use them in your frontend application.
+### Prerequisites
+- AlgoKit CLI  
+- Docker  
+- Node.js & npm  
+- Python 3.10+  
 
-The frontend starter also provides an example of interactions with your AlgoArenaClient in [`AppCalls.tsx`](projects/AlgoArena-frontend/src/components/AppCalls.tsx) component by default.
+### 1. Clone the Repository
+```sh
+git clone https://github.com/rushikesh2k04/AlgoArena.git
+```
 
-## Next Steps
+### 2. Navigate to Project Folder
+Open terminal in the folder.
 
-You can take this project and customize it to build your own decentralized applications on Algorand. Make sure to understand how to use AlgoKit and how to write smart contracts for Algorand before you start.
+### 3. Start AlgoKit LocalNet
+```sh
+algokit localnet start
+```
+
+### 4. Install Dependencies
+```sh
+algokit project bootstrap all
+```
+
+### 5. Build Contracts + Frontend
+```sh
+algokit project run build
+```
+
+## Run the Frontend
+
+### 6. Navigate to Frontend
+```sh
+cd projects
+cd AlgoArena-frontend
+```
+
+### 7. Start Development Server
+```sh
+npm run dev
+```
+
+Visit: **http://localhost:8080**
+
+---
+
+## 📱 Live Deployment
+
+🔗 **Project URL**: https://algohealx.netlify.app/
+
+---
+
+## 📁 Project Structure
+
+```
+AlgoArena/
+├── projects/
+│   ├── AlgoArena-contracts/
+│   └── AlgoArena-frontend/
+├── .algokit/
+└── .vscode/
+```
+
+---
+
+## 🎯 Join the Revolution
+**Play with purpose. Earn with skill. Welcome to AlgoArena.**
