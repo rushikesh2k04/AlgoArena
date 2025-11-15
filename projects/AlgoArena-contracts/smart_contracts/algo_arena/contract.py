@@ -42,3 +42,6 @@ class AlgoArenaRewardContract(ARC4Contract):
             self.paused.value,
             self.name.value
         )
+    @arc4.abimethod(readonly=True)
+    def is_paused(self) -> UInt64:
+        return self.paused.value
