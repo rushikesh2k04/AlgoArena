@@ -35,3 +35,10 @@ class AlgoArenaRewardContract(ARC4Contract):
             amount=amount.native,
             fee=1000
         ).submit()
+    @arc4.abimethod(readonly=True)
+    def get_info(self) -> tuple[arc4.Address, UInt64, Bytes]:
+        return (
+            arc4.Address(self.admin.value),
+            self.paused.value,
+            self.name.value
+        )
