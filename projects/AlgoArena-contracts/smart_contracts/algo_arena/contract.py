@@ -30,13 +30,12 @@ class AlgoArenaRewardContract(ARC4Contract):
         assert self.paused.value == UInt64(0), "contract paused"
         assert amount.native > 0, "amount must be > 0"
 
-       itxn.Payment(
-    sender=arc4.Address("<application-or-funded-account>"),
+        itxn.Payment(
+
     receiver=player.native,
     amount=amount.native,
     fee=1000
-    ).submit()
-
+).submit()
     @arc4.abimethod(readonly=True)
     def get_info(self) -> tuple[arc4.Address, UInt64, Bytes]:
         return (
