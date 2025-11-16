@@ -94,7 +94,7 @@ Visit: **http://localhost:8080**
 
 Our smart contract is deployed and running on the **Algorand TestNet**:
 
-🔗 **Contract Address**: [View on Lora Explorer](https://lora.algokit.io/testnet/application/749726145)
+🔗 **Contract Address**: [View on Lora Explorer](https://lora.algokit.io/testnet/application/749712902)
 
 
 🔗 **Project URL**: https://algohealx.netlify.app/
