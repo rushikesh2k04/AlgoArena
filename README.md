@@ -87,9 +87,15 @@ npm run dev
 
 Visit: **http://localhost:8080**
 
+
 ---
 
 ## 📱 Live Deployment
+
+Our smart contract is deployed and running on the **Algorand TestNet**:
+
+🔗 **Contract Address**: [View on Lora Explorer](https://lora.algokit.io/testnet/application/749726145)
+
 
 🔗 **Project URL**: https://algohealx.netlify.app/
 
