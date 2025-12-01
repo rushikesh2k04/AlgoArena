@@ -1,88 +1,83 @@
-📘 Introduction to AlgoArena
+# 🎮 AlgoArena – Introduction
 
-AlgoArena is a decentralized, blockchain-powered mini-game platform built on the Algorand ecosystem. It brings together casual gaming, real on-chain rewards, and transparent smart-contract automation, creating a fair and rewarding experience for players worldwide.
+AlgoArena is a decentralized, blockchain-powered mini-game platform built on the Algorand ecosystem. It combines **casual gaming**, **real on-chain rewards**, and **transparent smart-contract automation**, offering players a fair, skill-based, and rewarding experience.
 
-Unlike traditional Web2 gaming platforms, where users play without owning their progress or rewards, AlgoArena ensures true digital ownership, verifiable fairness, and crypto-powered incentives for every player.
+Unlike Web2 games, where achievements have no real value, AlgoArena gives players **true digital ownership**, **verifiable fairness**, and **crypto-backed rewards** for every performance.
 
-🎮 What Is AlgoArena?
+---
 
-AlgoArena is a multi-game hub featuring a collection of fast, fun, skill-based games. Every game is integrated with Algorand smart contracts that enable:
+## 🚀 What Is AlgoArena?
 
-ALGO token rewards for winning or achieving milestones
+AlgoArena is a multi-game hub featuring fast, fun, skill-based games powered by Algorand Layer-1 blockchain capabilities.
 
-On-chain NFTs to commemorate achievements
+### Key Capabilities:
+- **ALGO Rewards** for game victories and milestones  
+- **On-Chain Achievement NFTs** (ARC-3)  
+- **Transparent Leaderboards**  
+- **Smart Contract–based Reward Logic**  
+- **Multi-Wallet Support** (Pera, Defly, Lute)
 
-Transparent leaderboards
+AlgoArena transforms traditional gaming by giving real, permanent value to player achievements.
 
-Secure, tamper-proof reward logic
+---
 
-Multi-wallet support (Pera, Defly, Lute)
+## ⭐ Why AlgoArena?
 
-AlgoArena transforms traditional gaming by backing player achievements with verifiable blockchain assets.
+### ✓ Fair & Transparent Gameplay  
+Smart contracts ensure reward distribution and operations follow transparent, verifiable rules.
 
-🚀 Why AlgoArena?
-✓ Fair & Transparent Gaming
+### ✓ Real On-Chain Rewards  
+Players earn **ALGO tokens** and **NFTs** instead of meaningless Web2 points.
 
-Smart contracts ensure that rewards, achievements, and game operations follow transparent logic with no hidden manipulation.
+### ✓ Digital Ownership  
+All earned items belong entirely to the player and can be traded or transferred across Algorand apps.
 
-✓ Real On-Chain Rewards
+### ✓ Fast & Low-Cost  
+Algorand provides **sub-4 second finality** and **near-zero fees**, ideal for gaming.
 
-Players earn actual ALGO tokens and ARC-3 NFTs, not meaningless in-game points.
+---
 
-✓ Ownership & Interoperability
+## 🧩 Core System Components
 
-All earned items belong to the player and can be traded, transferred, or showcased across the Algorand ecosystem.
+### **1. Frontend Layer**
+- React + TypeScript + TailwindCSS  
+- Smooth UI for gameplay, rewards, wallets, and leaderboards  
 
-✓ Fast & Low-Cost Network
+### **2. Smart Contract Layer**
+- PyTeal ARC-4 contract for rewards, NFTs, pause controls, and admin logic  
+- Executes ALGO and NFT transfers trustlessly  
 
-Algorand offers sub-4 second finality and near-zero fees — perfect for gaming workloads.
+### **3. Backend / Database Layer**
+- Supabase for user/game metadata  
+- Deno-based edge functions for secure serverless operations  
 
-🧩 Core Building Blocks
+---
 
-AlgoArena consists of three primary layers:
+## 🏆 What AlgoArena Solves
 
-Frontend Layer
+- No real value for players → **Introduces token/NFT rewards**  
+- Centralized score storage → **Transparent, verifiable on-chain logic**  
+- No true ownership → **Player-controlled blockchain assets**  
+- No proof of fairness → **Smart-contract driven fairness**  
 
-Built with React + TypeScript + TailwindCSS
+AlgoArena turns casual gaming into a **reward-first, trustless, and ownership-based** ecosystem.
 
-Smooth UI for gameplay, rewards, and leaderboards
+---
 
-Smart Contract Layer
+## 🔗 Open-Source Vision
 
-PyTeal contracts manage rewards, NFTs, pausing, admin roles, etc.
+AlgoArena is fully open source and aims to:
 
-Executes ALGO and NFT transfers autonomously
+- Provide reusable Web3 gaming patterns  
+- Help developers learn Algorand smart-contract development  
+- Enable community-driven game expansion  
+- Ensure complete transparency in reward logic  
 
-Backend / Database Layer
+---
 
-Supabase (Lovable Cloud) for storing user/game metadata
+## 📌 Conclusion
 
-Edge functions for secure serverless interactions
+AlgoArena shows how Web3 can enhance everyday digital experiences. By merging fun mini-games with blockchain rewards, it creates a transparent, player-first, value-driven gaming ecosystem — powered entirely by Algorand.
 
-🏆 What AlgoArena Solves
+---
 
-Traditional games lack real value for players
-
-Rewards are locked inside centralized servers
-
-No transparency in leaderboard ranking
-
-Players cannot verify fairness
-
-AlgoArena solves these problems using Layer-1 blockchain mechanics, giving players ownership, value, and trust.
-
-🔗 Open-Source Mission
-
-AlgoArena is fully open-source and aims to:
-
-Support Algorand developer onboarding
-
-Provide reusable Web3 gaming patterns
-
-Enable community-driven game expansion
-
-Ensure full transparency of smart contract reward logic
-
-📌 Conclusion
-
-AlgoArena is more than just a gaming platform — it is a demonstration of how Web3 can enhance everyday digital experiences. By merging casual games with blockchain rewards, AlgoArena creates a fun, transparent, and player-first ecosystem powered by Algorand.
