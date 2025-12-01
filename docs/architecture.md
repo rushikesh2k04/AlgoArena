@@ -9,11 +9,13 @@ It integrates Algorand smart contracts, a high-performance frontend, and a real-
 
 AlgoArena follows a **three-layer architecture**:
 
-🖥️ Frontend UI  
-⬇️  
-🔐 Smart Contract Layer  
-⬇️  
-🗄️ Backend & Database Layer
+
+| Layer Number | Layer Name               | Description                          |
+|--------------|---------------------------|--------------------------------------|
+| 1️⃣           | Frontend UI              | React-based gameplay & wallet UX     |
+| 2️⃣           | Smart Contract Layer     | PyTeal contracts for rewards & NFTs  |
+| 3️⃣           | Backend & Database Layer | Supabase edge functions + PostgreSQL |
+
 
 Each layer is designed to be scalable, independent, and easily extensible for future game additions.
 
