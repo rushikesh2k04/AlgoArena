@@ -167,6 +167,3 @@ AlgoArena NFTs provide:
 
 NFTs form a central part of the AlgoArena reward identity system.
 
-```
-nt the same format for **Supabase backend**, **data flow**, **security**, or **business model**, just say *next*!
-```
