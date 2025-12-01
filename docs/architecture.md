@@ -8,12 +8,12 @@ It integrates Algorand smart contracts, a high-performance frontend, and a real-
 # 🔶 1. Architecture Overview
 
 AlgoArena follows a **three-layer architecture**:
-[ Frontend UI ]
-↓
-[ Smart Contract Layer ]
-↓
-[ Backend & Database Layer ]
 
+🖥️ Frontend UI  
+⬇️  
+🔐 Smart Contract Layer  
+⬇️  
+🗄️ Backend & Database Layer
 
 Each layer is designed to be scalable, independent, and easily extensible for future game additions.
 
