@@ -40,13 +40,11 @@ export const GameCard = ({
       "Card Master": "/games/card-master",
       "8 Ball Pool": "/games/8ball-pool",
       "Number Slide (2048)": "/games/2048",
-      "Sudoku Master": "/games/sudoku",
       "Water Sort": "/games/water-sort",
-      "Block Puzzle": "/games/block-puzzle",
-      "Color Connect": "/games/color-connect",
+      "Roulette Wheel": "/games/roulette-wheel",
       "Tic Tac Toe": "/games/tictactoe",
-      "Candy Crush": "/games/candy-crush",
-      "Bubble Shooter": "/games/bubble-shooter",
+      "Mines": "/games/mines",
+      "Slot Machine": "/games/slot-machine",
     };
     return routes[gameTitle] || "/";
   };
