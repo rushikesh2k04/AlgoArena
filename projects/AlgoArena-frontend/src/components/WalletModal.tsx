@@ -19,11 +19,9 @@ export const WalletModal = ({ open, onOpenChange, onWalletSelect }: WalletModalP
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md glass-effect border-primary/20">
         <DialogHeader>
-         <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent mt-2 drop-shadow-lg">
+          <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent mt-2 drop-shadow-lg">
   Connect Wallet
 </DialogTitle>
-
-
         </DialogHeader>
         <div className="space-y-3 py-4">
           {wallets.map((wallet) => (
