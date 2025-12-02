@@ -37,7 +37,7 @@ export const Friends = () => {
     <section id="friends" className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
+           <h2 className="text-4xl md:text-5xl font-bold">
             Your <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">Friends</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
