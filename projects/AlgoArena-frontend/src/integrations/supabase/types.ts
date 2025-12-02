@@ -14,16 +14,152 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_wallets: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          is_active: boolean
+          notes: string | null
+          role: Database["public"]["Enums"]["admin_role"]
+          wallet_address: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          role?: Database["public"]["Enums"]["admin_role"]
+          wallet_address: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          role?: Database["public"]["Enums"]["admin_role"]
+          wallet_address?: string
+        }
+        Relationships: []
+      }
+      game_sessions: {
+        Row: {
+          difficulty: string | null
+          entry_fee_amount: number | null
+          entry_fee_paid: boolean | null
+          entry_fee_txid: string | null
+          game_name: string
+          id: string
+          nft_asset_id: number | null
+          played_at: string | null
+          player_id: string | null
+          reward_amount: number | null
+          reward_paid: boolean | null
+          reward_txid: string | null
+          score: number
+          transaction_id: string | null
+        }
+        Insert: {
+          difficulty?: string | null
+          entry_fee_amount?: number | null
+          entry_fee_paid?: boolean | null
+          entry_fee_txid?: string | null
+          game_name: string
+          id?: string
+          nft_asset_id?: number | null
+          played_at?: string | null
+          player_id?: string | null
+          reward_amount?: number | null
+          reward_paid?: boolean | null
+          reward_txid?: string | null
+          score: number
+          transaction_id?: string | null
+        }
+        Update: {
+          difficulty?: string | null
+          entry_fee_amount?: number | null
+          entry_fee_paid?: boolean | null
+          entry_fee_txid?: string | null
+          game_name?: string
+          id?: string
+          nft_asset_id?: number | null
+          played_at?: string | null
+          player_id?: string | null
+          reward_amount?: number | null
+          reward_paid?: boolean | null
+          reward_txid?: string | null
+          score?: number
+          transaction_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_sessions_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      players: {
+        Row: {
+          created_at: string | null
+          games_played: number | null
+          games_won: number | null
+          id: string
+          name: string
+          nfts_earned: number | null
+          player_id: string
+          total_rewards_earned: number | null
+          total_score: number | null
+          updated_at: string | null
+          wallet_address: string
+        }
+        Insert: {
+          created_at?: string | null
+          games_played?: number | null
+          games_won?: number | null
+          id?: string
+          name: string
+          nfts_earned?: number | null
+          player_id?: string
+          total_rewards_earned?: number | null
+          total_score?: number | null
+          updated_at?: string | null
+          wallet_address: string
+        }
+        Update: {
+          created_at?: string | null
+          games_played?: number | null
+          games_won?: number | null
+          id?: string
+          name?: string
+          nfts_earned?: number | null
+          player_id?: string
+          total_rewards_earned?: number | null
+          total_score?: number | null
+          updated_at?: string | null
+          wallet_address?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin_wallet: {
+        Args: {
+          _role?: Database["public"]["Enums"]["admin_role"]
+          _wallet_address: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      admin_role: "super_admin" | "reward_funder" | "nft_minter"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +286,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      admin_role: ["super_admin", "reward_funder", "nft_minter"],
+    },
   },
 } as const
