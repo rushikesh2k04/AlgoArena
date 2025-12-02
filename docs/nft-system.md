@@ -1,169 +1,146 @@
+# 🖼️ AlgoArena – NFT Reward System
 
-# 🖼️ AlgoArena – NFT Achievement System
-
-AlgoArena uses **ARC-3 compliant NFTs** to reward players for skill, milestones, and tournament performance.  
-These NFTs represent **true digital ownership**, stored permanently on the Algorand blockchain.
-
-Below is the full NFT system in the same expandable format.
+AlgoArena includes a simple, reliable NFT reward mechanism powered by the Algorand blockchain.  
+Players receive an **ARC-3 NFT** after completing a verified task inside any game.  
+The NFT is permanently stored on-chain and viewable in **Pera Wallet** and Algorand NFT explorers.
 
 ---
 
-# 🏆 NFT Categories
-<details>
-<summary><h3>🟦 Puzzle Achievement NFTs</h3></summary>
+# 🏆 1. Overview
 
-- Awarded for high scores in games like Sudoku, 2048, Block Puzzle  
-- Tiered NFT rewards (Bronze → Silver → Gold → Legendary)  
-- Includes stats such as score, time, streak count  
-</details>
+AlgoArena uses **single-achievement NFTs** to acknowledge player milestones.  
+Unlike complex tiered NFT collections, AlgoArena focuses on:
 
-<details>
-<summary><h3>🟥 Arcade Performance NFTs</h3></summary>
+- ✔ One NFT per completed task  
+- ✔ Simple ARC-3 metadata  
+- ✔ Fast and low-cost minting  
+- ✔ Secure transfer using Algorand smart contracts  
+- ✔ Instant visibility in Pera Wallet  
 
-- Rewards in Bubble Shooter, Speed Runner  
-- Perfect round NFTs for flawless gameplay  
-- Time, accuracy, and combo-based badges  
-</details>
-
-<details>
-<summary><h3>⭕ Strategy Skill NFTs</h3></summary>
-
-- Tic Tac Toe “Unbeatable Player” NFT  
-- Connect4 “Grandmaster” NFT  
-- Win streak and difficulty-based rarities  
-</details>
-
-<details>
-<summary><h3>🏅 Tournament Trophy NFTs</h3></summary>
-
-- Daily/Weekly/Seasonal tournament winners  
-- Rare trophy NFTs with timestamp + game stats  
-- Limited edition collectible designs  
-</details>
+No rarity tiers, no multiple categories — just **clean achievement NFTs**.
 
 ---
 
-# 📦 NFT Metadata (ARC-3)
-<details>
-<summary><h3>📜 JSON Metadata Example</h3></summary>
+# 🧩 2. How the NFT Reward Works
+
+- Player completes a task (e.g., wins a game)
+
+- Supabase Edge Function validates the completion
+
+- Backend triggers the smart contract call → nft_reward()
+
+- Smart contract transfers exactly 1 NFT to the player's wallet
+
+- NFT appears instantly in Pera Wallet
+
+
+This ensures:
+- 🎯 100% fair and verifiable reward distribution  
+- 🔐 No admin bypass or manipulation  
+- ⚡ Extremely fast reward delivery  
+
+---
+
+# 📦 3. ARC-3 NFT Metadata Structure
+
+AlgoArena NFTs follow the **ARC-3** standard (Algorand NFT standard).  
+Here is the exact metadata format used:
 
 ```json
 {
-  "name": "AlgoArena Champion - Sudoku",
-  "description": "Awarded for achieving a top-tier Sudoku score.",
-  "image": "ipfs://bafybeiexample/image.png",
+  "name": "AlgoArena Achievement",
+  "description": "Awarded for completing a verified task in AlgoArena.",
+  "image": "ipfs://YOUR_IMAGE_CID",
   "image_mimetype": "image/png",
   "properties": {
-    "game": "Sudoku",
-    "score": 1500,
-    "rank": "Legendary",
-    "time": "00:32",
-    "rarity": "Ultra Rare",
-    "timestamp": "2025-01-15T10:30:00Z"
+    "task": "Completed Task",
+    "game": "Game Name",
+    "timestamp": "2025-01-01T10:00:00Z",
+    "reward_type": "Achievement NFT"
   }
 }
-````
-
-</details>
+```
+### Editable Fields
+* **task** → description of task completed
+* **game** → which game generated the NFT
+* **timestamp** → creation timestamp
 
 ---
 
-# 📂 Storage & Delivery
+## 🔐 4. Smart Contract NFT Logic
+AlgoArena’s reward smart contract exposes simple NFT-transfer methods.
 
-<details>
-<summary><h3>📡 IPFS Storage</h3></summary>
-
-* All NFT images + metadata stored on **IPFS**
-* Ensures immutability and decentralization
-* Supports Pinata, NFT.Storage, or Supabase IPFS
-
-</details>
-
-<details>
-<summary><h3>🚀 NFT Reward Flow</h3></summary>
-
-```
-1. Player completes achievement
-2. Backend validates using Supabase Edge Function
-3. Calls smart contract → nft_reward()
-4. Contract transfers NFT via inner transaction
-5. Wallet receives NFT instantly (Pera/Defly/Lute)
-```
-
-</details>
-
----
-
-# 🔐 Smart Contract NFT Logic
-
-<details>
-<summary><h3>🧪 Core Methods</h3></summary>
-
+### Core NFT Methods
 ```python
 def nft_reward(receiver, asset_id):
-    # Transfers 1 unit of an NFT to player
+    # transfers 1 unit of an NFT to the player
 
 def asset_opt_in(asset):
-    # App opts-in to NFT asset
+    # allows the contract to opt-in to the NFT ASA
 ```
-
-* Admin-only execution
-* Atomic inner transactions
-* Validates asset ID before transfer
-
-</details>
+### Security Features
+* Only **admin** can call `nft_reward()`
+* Contract checks **paused/unpaused** state
+* Transfers use **inner transactions**
+* Ensures **correct asset ID** is transferred
 
 ---
 
-# 📱 Wallet Compatibility
+## 👛 5. Wallet Support
+AlgoArena NFTs are compatible with all major Algorand wallets:
 
-<details>
-<summary><h3>✔ Supported Wallets & Marketplaces</h3></summary>
-
-**Wallets:**
-
-* Pera Wallet
+### Supported Wallets
+* **Pera Wallet** (primary & recommended)
 * Defly Wallet
 * Lute Wallet
 
-**Marketplaces:**
+### Player Capabilities
+* View NFTs in the wallet
+* Send NFTs to others
+* Trade NFTs on marketplaces
+
+---
+
+## 🛍️ 6. Marketplace Compatibility
+AlgoArena NFTs work on popular Algorand NFT platforms:
 
 * Rand Gallery
 * Shufl
 * Exa Market
 * ASA Explorer
 
-NFTs show immediately once minted.
-
-</details>
+> **Note:** Because AlgoArena uses **ARC-3**, no custom integration is required.
 
 ---
 
-# 🔮 Future NFT Expansions
+## 🚀 7. NFT Flow in AlgoArena
+**Game** → **Task Complete** → **Supabase Validate** → `nft_reward()` → **Pera Wallet**
 
-<details>
-<summary><h3>🌟 Planned NFT Features</h3></summary>
-
-* Dynamic NFTs (stats update on-chain)
-* Soulbound achievements (non-transferable)
-* Seasonal limited-edition NFT collections
-* In-app NFT gallery for player profiles
-* Marketplace inside AlgoArena
-
-</details>
+* **Fully automated**
+* **No manual approval needed**
+* **Always on-chain**
+* **Gas cost:** ≈ negligible (~0.002 ALGO)
 
 ---
 
-# 📌 Summary
+## 🔮 8. Future NFT Enhancements
+AlgoArena may introduce:
 
-AlgoArena NFTs provide:
+* **Dynamic NFTs** (stats update on-chain)
+* **Seasonal collectible series**
+* **Special event NFTs**
+* **Soul-bound NFTs** (non-transferable achievements)
+* **NFT gallery** inside player profiles
 
-* **True digital ownership**
-* **ARC-3 compliant metadata**
-* **Secure on-chain achievement verification**
-* **IPFS-backed decentralization**
-* **Smooth wallet visibility and tradeability**
-* **A scalable achievement ecosystem for all games**
+*(These are optional future expansions — not part of the current system.)*
 
-NFTs form a central part of the AlgoArena reward identity system.
+---
 
+## 📌 Summary
+The **AlgoArena** NFT system is:
+
+* ✔ **Simple** — one NFT per completed task
+* ✔ **Secure** — enforced by Algorand smart contracts
+* ✔ **Fast** — instant delivery after validation
+* ✔ **On-Chain** — permanent and decentralized
+* ✔ **Wallet-Friendly** — visible instantly in Pera Wallet
