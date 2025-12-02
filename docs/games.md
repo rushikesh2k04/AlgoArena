@@ -1,163 +1,143 @@
 # 🎮 AlgoArena – Games Catalog
 
-AlgoArena features a growing collection of **skill-based casual games**, all connected to Algorand’s blockchain reward engine.  
-Players earn ALGO, NFTs, and leaderboard ranks based on performance.
+AlgoArena offers a curated collection of **skill-based casual games**, each connected to Algorand’s blockchain reward engine.  
+Players earn **ALGO**, **achievement NFTs**, and leaderboard positions based on performance.
 
-Below is the full catalog of games, organized by category.
-
----
-
-# 🧩 Puzzle Games
-<details>
-<summary><h3>🟦 2048</h3></summary>
-
-- Classic tile-merging puzzle  
-- Player score directly determines reward potential  
-- Achievement NFTs for high tile scores (512 / 1024 / 2048)  
-</details>
-
-<details>
-<summary><h3>🟩 Sudoku</h3></summary>
-
-- Timed puzzle challenge  
-- Rewards based on completion time + difficulty level  
-- Tiered NFTs for “Quick Solver”, “Grandmaster”, etc.  
-</details>
-
-<details>
-<summary><h3>🟨 Block Puzzle</h3></summary>
-
-- Drag & fit blocks to clear rows  
-- Rewards for streak completions  
-- NFTs for high streak achievements  
-</details>
+Games are divided into **Easy**, **Medium**, and **Hard** difficulty levels.
 
 ---
 
-# 🎯 Strategy & Logic Games
-<details>
-<summary><h3>⭕ Tic Tac Toe</h3></summary>
+# 🟢 Easy Games
 
-- PvP or AI mode  
-- Rewards for consecutive wins  
-- NFTs for “Unbeatable” streaks  
+<details>
+<summary><strong>🧠 Algorand Trivia Challenge</strong></summary>
+
+- Fast-paced quiz game  
+- Rewards for quick & correct answers  
+- Entry Fee: 2 ALGO  
+- High-score NFTs for streaks  
+
 </details>
 
 <details>
-<summary><h3>🟥 Connect 4 (Upcoming)</h3></summary>
+<summary><strong>🧪 Water Sort</strong></summary>
 
-- Token-drop strategy game  
-- Reward multipliers for 4-in-a-row streaks  
+- Sort colored water into tubes  
+- Relaxing yet strategic puzzle  
+- Entry Fee: 1 ALGO  
+- NFT rewards for perfect clears  
+
+</details>
+
+<details>
+<summary><strong>⭕ Tic Tac Toe</strong></summary>
+
+- Classic strategy game (AI or PvP)  
+- Entry Fee: 1 ALGO  
+- Win streak bonuses  
+
+</details>
+
+<details>
+<summary><strong>🔢 Number Slide (2048)</strong></summary>
+
+- Merge tiles to reach 2048  
+- Entry Fee: 1.5 ALGO  
+- NFTs for achieving 1024 / 2048 tiles  
+
 </details>
 
 ---
 
-# 🃏 Card & Pattern Games
-<details>
-<summary><h3>🃏 Card Master</h3></summary>
+# 🟡 Medium Games
 
-- Memory pattern matching  
-- Time-based ALGO rewards  
-- NFT badges for perfect rounds  
+<details>
+<summary><strong>🎱 8 Ball Pool</strong></summary>
+
+- Precision cue sports  
+- Sink all balls to win  
+- Entry Fee: Coming Soon  
+
 </details>
 
 <details>
-<summary><h3>🟪 Solitaire (Upcoming)</h3></summary>
+<summary><strong>🏎️ Speed Car Racer</strong></summary>
 
-- Full game clear earns token bonuses  
-</details>
+- Navigate obstacles at lightning speed  
+- Beat the clock to win  
+- Entry Fee: Coming Soon  
 
----
-
-# 🎈 Casual Arcade Games
-<details>
-<summary><h3>🔵 Bubble Shooter</h3></summary>
-
-- Match colors and clear the board  
-- High-score rewards  
-- Rare NFTs for “Perfect Clear”  
 </details>
 
 <details>
-<summary><h3>🏃‍♂️ Speed Runner</h3></summary>
+<summary><strong>💣 Mines</strong></summary>
 
-- Reaction-based obstacle runner  
-- Reward for longest survival time  
-</details>
+- Strategic minesweeper gameplay  
+- Clear the grid without hitting mines  
+- Entry Fee: Coming Soon  
 
-<details>
-<summary><h3>🎳 Bowling Strike (Upcoming)</h3></summary>
-
-- Strike/streak-based ALGO rewards  
 </details>
 
 ---
 
-# 🔥 Competitive Battle Games
-<details>
-<summary><h3>⚔️ Battle Tap Arena</h3></summary>
+# 🔴 Hard Games
 
-- Fast-click stamina battle  
-- Highest tap score wins  
+<details>
+<summary><strong>🃏 Card Master</strong></summary>
+
+- Memory card pattern matching  
+- High rewards for perfect accuracy  
+- Entry Fee: Coming Soon  
+
 </details>
 
 <details>
-<summary><h3>🚀 Space Defender (Upcoming)</h3></summary>
+<summary><strong>🎡 Roulette Wheel</strong></summary>
 
-- Shoot enemies, survive waves  
-- Boss-level NFT rewards  
+- Spin the wheel with strategic betting  
+- Luck + strategy = big wins  
+- Entry Fee: Coming Soon  
+
+</details>
+
+<details>
+<summary><strong>🎰 Slot Machine</strong></summary>
+
+- Realistic slot gameplay  
+- Match symbols to hit jackpots  
+- Entry Fee: Coming Soon  
+
 </details>
 
 ---
 
 # 🏆 Leaderboards & Rewards
 
-Each game uses:
-- **On-chain verified reward calls**  
-- **ALGO payouts** (via reward_algo)  
-- **Achievement NFTs** (via nft_reward)  
-- **Tiered ladder ranking**  
-- **Daily/weekly score resets** (stored in Supabase)  
+Each game supports:
 
-Rewards are tied to:
+- **On-chain ALGO rewards** (via `reward_algo`)  
+- **NFT achievements** (via `nft_reward`)  
+- **Daily/weekly leaderboards**  
+- **Difficulty-based reward multipliers**
+
+Rewards depend on:
+
 - Score  
 - Time  
+- Game completion  
+- Streaks  
 - Accuracy  
-- Streak  
-- Difficulty level  
-
----
-
-# 📈 Game Categories & Reward Types
-
-| Category | Games | Rewards |
-|---------|-------|---------|
-| Puzzle | 2048, Sudoku, Block Puzzle | Score-based ALGO + NFTs |
-| Strategy | Tic Tac Toe, Connect 4 | Win-streak rewards |
-| Arcade | Bubble Shooter, Speed Runner | Time/accuracy rewards |
-| Card | Card Master | Memory accuracy rewards |
-| Competitive | Battle Arena, Space Defender | Survival + high-score |
-
----
-
-# 🌟 Upcoming Games (Roadmap)
-
-- **Chess (PvP)** – ELO-based ALGO rewards  
-- **Minesweeper** – Speed-based NFT badges  
-- **Snake Classic** – Length-based reward multipliers  
-- **Racing Dash** – Lap-time leaderboards  
-- **Crypto Quiz Arena** – Educational rewards  
 
 ---
 
 # 📌 Summary
 
 AlgoArena's game library is:
+
 - **Skill-based**  
-- **Fast and interactive**  
+- **Fair**  
 - **Reward-driven**  
-- **Expandable**  
 - **Blockchain-integrated**  
+- **Continuously expanding**
 
 Each game contributes to a larger Web3 gaming ecosystem powered by Algorand.
-
